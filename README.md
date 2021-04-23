@@ -1,2 +1,2 @@
-# torus_movie
-Program written in Python3 to generate the movie of a torus whose center angle changes periodically.
+# partial_torus
+トーラスの中心角が伸びたり縮んだりするだけの動画をBlenderを使って作るためのPython3のプログラムです。
