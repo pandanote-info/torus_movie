@@ -30,7 +30,7 @@ def create_partial_torus(location, radius, _angle):
     draw_circle(location, radius, angle[0])
     bpy.ops.object.modifier_add(type='SCREW')
     # Blenderの言語設定を「日本語」にするとmodifierの
-    # 設定名は日本語で指定します。
+    # 設定名は日本語でしか指定できないようです。
     scr = bpy.context.object.modifiers["スクリュー"]
     scr.angle = math.pi*delta_angle
     scr.axis = 'Y'
