@@ -7,6 +7,8 @@ import bpy
 import math
 import os
 
+currentpath = os.environ['HOMEPATH'] + '/Documents/GitHub/torus_movie'
+
 
 def remove_mesh_all():
     for item in bpy.data.meshes:
@@ -72,8 +74,7 @@ def generate_test_torus():
             bpy.context.scene.render.image_settings.file_format = 'PNG'
             bpy.ops.render.render()
             bpy.data.images['Render Result'].save_render(
-                filepath=os.environ['HOMEPATH'] +
-                '/Documents/torus_movie/torus{:0=4}.png'.format(j))
+                currentpath + '/torus{:0=4}.png'.format(j))
 
         for i in reversed(range(181)):
             j = j + 1
@@ -83,8 +84,7 @@ def generate_test_torus():
             bpy.context.scene.render.image_settings.file_format = 'PNG'
             bpy.ops.render.render()
             bpy.data.images['Render Result'].save_render(
-                filepath=os.environ['HOMEPATH'] +
-                '/Documents/torus_movie/torus{:0=4}.png'.format(j))
+                filepath=currentpath + '/torus{:0=4}.png'.format(j))
 
 
 def generate_partial_torus():
@@ -92,7 +92,9 @@ def generate_partial_torus():
     create_partial_torus((0.9, 0, 0), 0.3, (0, 60))
 
 
-generate_partial_torus()
-for obj in bpy.data.objects:
-    if obj.type == "MESH" and obj.name == "円.002":
-        obj.name = "PartialTorus"
+# generate_partial_torus()
+# for obj in bpy.data.objects:
+#    if obj.type == "MESH" and obj.name == "円.002":
+#        obj.name = "PartialTorus"
+
+generate_test_torus()
